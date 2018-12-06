@@ -1,6 +1,6 @@
-import { createStackNavigator, createNavigationContainer } from 'react-navigation';
-import MainMenuScreen from './Screens/MainMenuScreen';
-import GameScreen from './Screens/GameScreen';
+import { createStackNavigator, createNavigationContainer } from 'react-navigation'
+import MainMenuScreen from './Screens/MainMenuScreen'
+import GameScreen from './Screens/GameScreen'
 
 const ApplicationNavigator = createStackNavigator(
   {
@@ -10,8 +10,8 @@ const ApplicationNavigator = createStackNavigator(
   {
     initialRouteName: 'MainMenu',
   },
-);
+)
 
-const AppContainer = createNavigationContainer(ApplicationNavigator);
+const AppContainer = createNavigationContainer(ApplicationNavigator)
 
-export default AppContainer;
+export default AppContainer
