@@ -1,8 +1,12 @@
-const SELECT_CATEGORY_REQUEST = 'SELECT_CATEGORY'
-const NEXT_QUESTION = 'NEXT_QUESTION'
+import { SELECT_CATEGORY, NEXT_QUESTION, SELECT_DIFFICULTY } from '../constants'
 
-export const selectCategoryRequest = category => ({
-  type: SELECT_CATEGORY_REQUEST,
+export const selectCategory = category => ({
+  type: SELECT_CATEGORY,
+  payload: category,
+})
+
+export const selectDifficulty = category => ({
+  type: SELECT_DIFFICULTY,
   payload: category,
 })
 
