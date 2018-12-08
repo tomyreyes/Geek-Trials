@@ -3,7 +3,7 @@ const router = express.Router()
 const axios = require('axios')
 
 router.get('/get-questions', (req, res) => {
-  const { category, difficulty } = req.body
+  const { categoryId, difficulty } = req.params
   return axios
     .get(
       `https://opentdb.com/api.php?amount=10&category=${category}&type=multiple&difficulty=${difficulty}`
