@@ -1,16 +1,20 @@
 const express = require('express')
-const router = express.Router()
+const api = express.Router()
 const axios = require('axios')
 
-router.get('/get-questions', (req, res) => {
-  if (!req.params) {
-    res.send('An error occurred: No parameters sent')
+api.get('/get-questions', (req, res) => {
+  if (!Object.keys(req.query).length) {
+    res
+      .status(500)
+      .json({ status: 500, message: 'An error occurred: No queries sent' })
   }
-  const { categoryId, difficulty } = req.params
+  const { categoryId, difficulty } = req.query
   return axios
     .get(
       `https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple&difficulty=${difficulty}`
     )
-    .then(results => res.json(results.data.results))
-    .catch(error => res.json(error))
+    .then(results => res.status(200).json(results.data.results))
+    .catch(error => res.status(404).json(error))
 })
+
+module.exports = api
