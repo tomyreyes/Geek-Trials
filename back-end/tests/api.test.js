@@ -11,10 +11,11 @@ describe('Test trivia questions endpoint', () => {
   })
   test('It should respond with a status 200', () => {
     return request(app)
-      .get('/api//get-questions')
+      .get('/api/get-questions')
       .query({ categoryId: 11, difficulty: 'easy' })
       .then(response => {
         expect(response.status).toBe(200)
+        expect(response.body.length).toBe(10)
       })
   })
 })
