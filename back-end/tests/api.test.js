@@ -9,5 +9,12 @@ describe('Test trivia questions endpoint', () => {
         expect(response.status).toBe(500)
       })
   })
+  test('It should respond with a status 200', () => {
+    return request(api)
+      .get('/get-questions')
+      .query({ categoryId: 11, difficulty: 'easy' })
+      .then(response => {
+        expect(response.status).toBe(200)
+      })
+  })
 })
-//expecting 500 because no query is present.

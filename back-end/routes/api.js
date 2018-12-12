@@ -1,6 +1,6 @@
 const express = require('express')
 const api = express.Router()
-// const api = express() this way seems to work
+// const api = express() this way seems to work 
 const axios = require('axios')
 
 api.get('/get-questions', (req, res) => {
