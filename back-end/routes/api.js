@@ -1,10 +1,12 @@
 const express = require('express')
 const api = express.Router()
+// const api = express() this way seems to work
 const axios = require('axios')
 
 api.get('/get-questions', (req, res) => {
   if (!Object.keys(req.query).length) {
-    res
+    //return early if queries are not there
+    return res
       .status(500)
       .json({ status: 500, message: 'An error occurred: No queries sent' })
   }
