@@ -9,6 +9,10 @@ app.use(cors())
 app.use('/', root)
 app.use('/api', api)
 
-app.listen(PORT, () => {
-  console.log(`Now listening on port: ${PORT}`)
-})
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Now listening on port: ${PORT}`)
+  })
+}
+
+module.exports = app
