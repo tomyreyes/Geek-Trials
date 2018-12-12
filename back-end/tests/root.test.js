@@ -1,9 +1,9 @@
 const request = require('supertest')
-const root = require('../routes/root')
+const app = require('../server.js')
 
 describe('Test the root path', () => {
   test('It should response the GET method', () => {
-    return request(root)
+    return request(app)
       .get('/')
       .then(response => {
         expect(response.statusCode).toBe(200)
