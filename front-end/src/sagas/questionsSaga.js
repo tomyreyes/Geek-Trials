@@ -2,7 +2,7 @@ import { takeEvery, call, put } from 'redux-saga'
 import axios from 'axios'
 import { FETCH_TRIVIA_REQUEST, FETCH_TRIVIA_SUCCESS, FETCH_TRIVIA_FAILED } from '../constants'
 
-function* fetchQuestions(action) {
+export function* fetchQuestions(action) {
   const { categoryId, difficulty } = action.payload
   try {
     const questions = yield call(
@@ -19,6 +19,6 @@ function* fetchQuestions(action) {
   }
 }
 
-export default function* watchQuestionData() {
+export function* watchQuestionData() {
   yield takeEvery(FETCH_TRIVIA_REQUEST, fetchQuestions)
 }

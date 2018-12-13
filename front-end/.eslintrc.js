@@ -4,6 +4,9 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     semi: 'off',
-    'no-shadow': 'off'
-  }
+    'no-shadow': 'off',
+  },
+  env: {
+    jest: true,
+  },
 }
